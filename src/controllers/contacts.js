@@ -11,6 +11,7 @@ export const getAllContactsController = async (req, res) => {
   const contacts = await getAllContacts();
 
   res.status(200).json({
+    status: 200,
     message: 'Successfully found contacts!',
     data: contacts,
   });
@@ -50,7 +51,7 @@ export const deleteContactController = async (req, res, next) => {
     return;
   }
 
-  res.status(204).send('Completed');
+  res.status(204).json({ status: 204, message: 'Completed', data: contact });
 };
 
 export const upsertContactController = async (req, res, next) => {
