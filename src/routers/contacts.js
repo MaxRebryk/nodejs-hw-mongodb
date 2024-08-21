@@ -11,10 +11,11 @@ import {
 import { validateBody } from '../middlewares/validateBody.js';
 import { createContactSchema } from '../validation/contacts.js';
 import { isValidId } from '../middlewares/isValidId.js';
+import { authenticate } from '../middlewares/authenticate.js';
 
 const router = Router();
 
-export default router;
+router.use(authenticate);
 
 router.get('/contacts', ctrlWrapper(getAllContactsController));
 
@@ -49,3 +50,5 @@ router.patch(
   validateBody(createContactSchema),
   ctrlWrapper(patchContactContorller),
 );
+
+export default router;
