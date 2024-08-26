@@ -35,7 +35,7 @@ export const setupServer = () => {
   app.use(cookieParser());
 
   app.use('/uploads', express.static(UPLOAD_DIR));
-q
+
   app.use('/api-docs', swaggerDocs());
 
   app.use(router);
